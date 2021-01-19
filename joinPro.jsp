@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
     
  <%@page import="kr.gov.bean.MemberBean" %>
- <%@page import="kr.gov.dao.MemberDAO" %>
 
 <!DOCTYPE html>
 <html>
