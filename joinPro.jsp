@@ -62,8 +62,14 @@
 			</tr>
 		</table>
 		<br/>
-		<input type="button" value="확인"/>
+		<input type="button" value="확인" onclick="goLogin()"/>
 	</div>
+	
+	<script type="text/javascript">
+		function goLogin() {
+			location.href = "./login.html"
+		}
+	</script>
 </body>
 </html>
 
