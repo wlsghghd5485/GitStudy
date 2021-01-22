@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로그인</title>
+
+	<script type="text/javascript">
+		function checkValue() {
+			var form = document.loginInfo;
+			
+			if(form.id.value == ""){
+				alert("아이디를 입력하세요.");
+				form.id.select();
+				form.id.focus();
+				return;
+			}
+			
+			if(form.pw.value == ""){
+				alert("비밀번호를 입력하세요.");
+				form.pw.select();
+				form.pw.focus();
+				return;
+			}
+			form.sumbit();
+		}
+		
+		//회원가입 클릭 시 회원가입 화면 join.html으로 이동
+		function goJoin() {
+			location.href = "./join.html";
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<div id="header">
+		<br/>
+		<b><font size="6" color="gray">로그인</font></b>
+		<br/><br/><br/>
+	</div>
+	
+	<div id="content">
+		<!-- 값(파라미터) 전송은 post 방식, 전송할 페이지는 loginPro.jsp -->
+		<form action="./loginPro.jsp" method="post" name="loginInfo">
+			<table>
+				<tr>
+					<td id="title">아이디</td>
+					<td>
+						<input type="text" name="id" size="12" maxlength="15" required="required"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td id="title">비밀번호</td>
+					<td>
+						<input type="password" name="pw" size="12" maxlength="15" required="required"/>
+					</td>
+				</tr>
+			</table>
+			<br/>
+			<input type="button" value="로그인" onclick="checkValue()">
+			<input type="button" value="회원가입" onclick="goJoin()">
+		</form>
+		
+	</div>
+</body>
+</html>
