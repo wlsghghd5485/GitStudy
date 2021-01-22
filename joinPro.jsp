@@ -1,8 +1,7 @@
-<%@page import="kr.gov.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
- <%@page import="kr.gov.bean.MemberBean" %>
+
+<%@page import="kr.gov.bean.MemberBean" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +12,7 @@
 </head>
 <body>
 	<%
-		request.setCharacterEncoding("UTF-8");	
+		request.setCharacterEncoding("UTF-8");
 	%>
 	
 	<jsp:useBean id="memberBean" class="kr.gov.bean.MemberBean"/>
