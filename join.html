@@ -30,6 +30,72 @@
             text-align: center;
         }
 	</style>
+	
+	<script type="text/javascript">
+		//필수 입력정보가 입력되었는지 확인하는 함수
+		function checkValue() {
+			var form = document.userInfo;
+			
+			if(form.name.value == ""){
+				alert("이름을 입력하세요.");
+				form.name.select();
+				form.name.focus();
+				return;
+			}
+			
+			if(form.id.value == ""){
+				alert("아이디를 입력하세요.");
+				form.id.select();
+				form.id.focus();
+				return;
+			}
+			
+			if(form.pw.value == ""){
+				alert("비밀번호를 입력하세요.");
+				form.pw.select();
+				form.pw.focus();
+				return;
+			}
+			
+			//비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+			if(form.pw.value != form.pwcheck.value){
+				alert("비밀번호를 동일하게 입력하세요.");
+				form.pwcheck.select();
+				form.pwcheck.focus();
+				return;
+			}
+			
+			if(form.age.value == ""){
+				alert("나이를 입력하세요.");
+				form.age.select();
+				form.age.focus();
+				return;
+			}
+			
+			if(form.email1.value == ""){
+				alert("이메일을 입력하세요.");
+				form.email1.select();
+				form.eamil1.focus();
+				return;
+			}
+			
+			if(form.addr.value == ""){
+				alert("주소를 입력하세요.");
+				form.addr.select();
+				form.addr.focus();
+				return;
+			}
+			
+			form.submit();
+		}
+		
+		//취소 버튼 누를 시 로그인 화면 login.jsp로 이동
+		function goLogin() {
+			location.href = "./login.html";
+		}
+		
+		
+	</script>
 
 </head>
 <body>
@@ -40,12 +106,13 @@
 	</div>	
 
 	<div id="content">
-		<form action="./joinPro.jsp" method="post">
+		<!-- 값(파라미터) 전송은 post 방식, 전송할 페이지는 joinPro.jsp -->
+		<form action="./joinPro.jsp" method="post" name="userInfo" onsubmit="return checkValue()">
 			<table>
 				<tr>
 					<td id="title">이름</td>
 					<td>
-						<input type="text" name="name" size="12" maxlength="15"/>
+						<input type="text" name="name" size="12" maxlength="15" required="required"/>
 					</td>
 				</tr>
 			
@@ -97,11 +164,19 @@
 						<input type="text" name="addr" size="50"/>
 					</td>
 				</tr>
+				
+				<!-- 버튼 정렬(임시) -->
+				<!-- <tr>
+					<td align="center" colspan="2">
+						<input type="submit" value="가입" />&nbsp;&nbsp;&nbsp;
+						<input type="reset" value="재입력" />
+					</td>
+				</tr> -->
 			</table>
 			<br/>
 		
-			<input type="submit" value="가입" />&nbsp;&nbsp;&nbsp;
-			<input type="reset" value="재입력" />
+			<input type="button" value="가입" onclick="checkValue()" />&nbsp;&nbsp;&nbsp;
+			<input type="button" value="취소" onclick="goLogin()" />
 		
 		</form>
 	</div>
